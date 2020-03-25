@@ -13,5 +13,8 @@ POPI dataset: https://www.creatis.insa-lyon.fr/rio/popi-model?action=show&redire
 ## Implemented details:
 
 - 4D CT data should be downloaded from the above datasets before implementation.
-- In order to speed up the code running speed, the observation value can be pre calculated by the [isoPTV method](https://github.com/visva89/pTVreg)
-- For DIR-lab dataset For POPI dataset
+- In order to speed up the code running speed, the observation value can be pre calculated by the [isoPTV method](https://github.com/visva89/pTVreg)[1]
+- For DIR-lab dataset, please start with the file / 
+- For POPI dataset, please start with the file /
+
+[1]Vishnevskiy V, Gass T, Szekely G, Tanner C, Goksel O. Isotropic total variation regularization of displacements in parametric image registration. IEEE TMI. 2017.
