@@ -12,5 +12,5 @@ POPI dataset: https://www.creatis.insa-lyon.fr/rio/popi-model?action=show&redire
 
 ## Implemented details:
 
--* 4D CT data should be downloaded from the above datasets before implementation
--* In order to speed up the code running speed, the observation value can be pre calculated by the isoPTV method
+- *4D CT data should be downloaded from the above datasets before implementation
+- *In order to speed up the code running speed, the observation value can be pre calculated by the isoPTV method
