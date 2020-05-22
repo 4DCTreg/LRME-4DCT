@@ -1,5 +1,6 @@
 
-function unary_tot=Get_Data_Term_3D_mask(volmov,volfix,mov_mask,fix_mask,griddim,O_trans_X,O_trans_Y,O_trans_Z,labels,level,previous,quant,metric,cur_grid_space)
+function unary_tot = Get_Data_Term_3D_mask(volmov,volfix,mov_mask,fix_mask,griddim,...
+    O_trans_X,O_trans_Y,O_trans_Z,labels,level,previous,quant,metric,cur_grid_space)
 % sigmas=[0.285,0.285,0.285];
 % volmov = imgaussfilt3(volmov, sigmas);
 % volfix = imgaussfilt3(volfix, sigmas);
@@ -8,8 +9,9 @@ if strcmp(metric, 'MIND')
     mind_volfix=MIND_descriptor(volfix);
     mind_volmov=mind_volmov.*100;
     mind_volfix=mind_volfix.*100;
-    unary_tot=Get_Data_Term_3D_MIND_mask(mind_volmov,mind_volfix,mov_mask,fix_mask,griddim,O_trans_X,O_trans_Y,O_trans_Z,labels,level,previous,quant);
-%     unary_tot=Get_Data_Term_3D_MIND_filter(mind_volmov,mind_volfix,griddim,O_trans_X,O_trans_Y,O_trans_Z,labels,level,previous,quant,cur_grid_space);
+%     unary_tot=Get_Data_Term_3D_MIND_mask(mind_volmov,mind_volfix,mov_mask,fix_mask,griddim,O_trans_X,O_trans_Y,O_trans_Z,labels,level,previous,quant);
+    unary_tot = Get_Data_Term_3D_MIND_GPU(mind_volmov,mind_volfix,mov_mask,fix_mask,griddim,O_trans_X,O_trans_Y,...
+        O_trans_Z,labels,level,previous,quant,cur_grid_space);
 else
     if strcmp(metric, 'SAD')
         unary_tot=Get_Data_Term_3D_SAD(volmov,volfix,griddim,O_trans_X,O_trans_Y,O_trans_Z,labels,level,previous,quant);

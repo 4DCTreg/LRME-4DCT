@@ -156,16 +156,16 @@ nz = [1:nsk];
             fix_mask = imresize3(fix_mask, round(bszv .* spc .* spc_tmp), 'nearest');
             spc = [1,1,1] ./ spc_tmp;
         end
-        parameter=homrf_get_POPI_parameter(useTop,spc);
+        parameter = homrf_get_POPI_parameter(useTop,spc);
         cur_grid_space = parameter.grid_space(1,:);
         
         [O_trans_X,O_trans_Y,O_trans_Z,dx,dy,dz]=make_control_grid_3D_Odd(cur_grid_space,size(volmov));
         griddim = [size(O_trans_X,1),size(O_trans_X,2),size(O_trans_X,3)];
         
         if phase == 1
-            Knots_n = zeros(griddim(1),griddim(2),griddim(3),3);
+            Knots_n = zeros(size(volmov,1),size(volmov,2),size(volmov,3),3);
         else
-            Knots_n = Knots_n_kalman_sparse_rsz_K;
+            Knots_n =  Knots_n_kalman;
         end
  
         [Knots_n_tot,Knots_n]=register_homrf_kalman_POPI_mask(parameter,volmov,volfix,mov_mask,fix_mask,...
