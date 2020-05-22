@@ -1,4 +1,4 @@
-% This is the tese of the POPI dataset
+% This is the test of the POPI dataset
 clear;
 
 addpath(genpath('../DIRpackage/'));
