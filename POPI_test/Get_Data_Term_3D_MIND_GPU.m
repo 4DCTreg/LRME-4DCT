@@ -104,9 +104,9 @@ m_filter = single(ones(N_control_size,grid_space(1),grid_space(2),grid_space(3))
 tarSearch = single(tarSearch);
 refBlock = single(refBlock);
 [gy_filter,tar_sum] = conv3d_gpu(tarSearch,refBlock,m_filter,N_control_size);
-gy_filter = squeeze(mean(gy_filter,1));
-Mov_sum = squeeze(mean(tar_sum,1));
-Mov_sum = permute(Mov_sum,[2,3,4,1]);
+% gy_filter = squeeze(mean(gy_filter,1));
+% Mov_sum = squeeze(mean(tar_sum,1));
+Mov_sum = permute(tar_sum,[2,3,4,1]);
 
 gy_filter = permute(gy_filter,[2,3,4,1]);
 
